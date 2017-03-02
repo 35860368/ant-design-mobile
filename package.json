@@ -69,6 +69,7 @@
     "@types/react-dom": "~0.14.18",
     "@types/react-native": "~0.37.8",
     "antd": "2.x",
+    "antd-demo-jest": "^1.0.6",
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^0.16.1",
     "babel-eslint": "^7.1.0",
@@ -104,6 +105,7 @@
     "lesshint": "^2.1.0",
     "lint-staged": "^3.3.1",
     "lodash.debounce": "^4.0.6",
+    "mockdate": "^2.0.1",
     "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
@@ -190,6 +192,9 @@
     "modulePathIgnorePatterns": [
       "/_site/"
     ],
+    "moduleNameMapper": {
+      "\\.svg$": "GlobalImageStub"
+    },
     "testPathIgnorePatterns": [
       "dekko",
       "/node_modules/",
@@ -197,7 +202,8 @@
     ],
     "transform": {
       "\\.tsx?$": "./node_modules/typescript-babel-jest",
-      "\\.js$": "./node_modules/babel-jest"
+      "\\.js$": "./node_modules/babel-jest",
+      "\\.md$": "./node_modules/antd-demo-jest/mobile"
     },
     "testRegex": ".*\\.test\\.js$",
     "collectCoverageFrom": [
