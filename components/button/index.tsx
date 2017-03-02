@@ -29,36 +29,36 @@ export default class Button extends React.Component<tsProps, any> {
     };
   }
 
-  onPressIn = (...arg) => {
+  onPressIn = (...args) => {
     if (!this.props.disabled) {
       this.setState({ pressIn: true });
     }
     if (this.props.onPressIn) {
-      this.props.onPressIn(arg);
+      (this.props.onPressIn as any)(...args);
     }
   }
-  onPressOut = (...arg) => {
+  onPressOut = (...args) => {
     if (!this.props.disabled) {
       this.setState({ pressIn: false });
     }
     if (this.props.onPressOut) {
-      this.props.onPressOut(arg);
+      (this.props.onPressOut as any)(...args);
     }
   }
-  onShowUnderlay = (...arg) => {
+  onShowUnderlay = (...args) => {
     if (!this.props.disabled) {
       this.setState({ touchIt: true });
     }
     if (this.props.onShowUnderlay) {
-      this.props.onShowUnderlay(arg);
+      (this.props.onShowUnderlay as any)(...args);
     }
   }
-  onHideUnderlay = (...arg) => {
+  onHideUnderlay = (...args) => {
     if (!this.props.disabled) {
       this.setState({ touchIt: false });
     }
     if (this.props.onHideUnderlay) {
-      this.props.onHideUnderlay(arg);
+      (this.props.onHideUnderlay as any)(...args);
     }
   }
 
@@ -92,6 +92,7 @@ export default class Button extends React.Component<tsProps, any> {
 
     return (
       <TouchableHighlight
+        {...restProps}
         activeOpacity={1}
         delayPressOut={1}
         underlayColor={underlayColor}
@@ -102,7 +103,6 @@ export default class Button extends React.Component<tsProps, any> {
         onShowUnderlay={this.onShowUnderlay}
         onHideUnderlay={this.onHideUnderlay}
         disabled={disabled}
-        {...restProps}
       >
         <Text style={textStyle}>{this.props.children}</Text>
       </TouchableHighlight>
